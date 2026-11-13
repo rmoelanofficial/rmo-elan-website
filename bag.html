@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Bag | RMO ÉLAN</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f8f5f0;
+  color: #241d1d;
+  font-family: Georgia, serif;
+}
+header {
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ded5ce;
+}
+.logo {
+  color: #651c32;
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+a { color: #651c32; text-decoration: none; }
+main {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 0 22px;
+}
+h1 {
+  color: #651c32;
+  font-size: 42px;
+  font-weight: normal;
+}
+.subtitle { color: #746963; }
+#items { margin-top: 35px; }
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 30px 20px;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border: 1px solid #e8ded8;
+  border-radius: 4px;
+}
+
+.item h3 { font-weight: normal; }
+.item p { font: 13px Arial, sans-serif; }
+.remove {
+  background: none;
+  border: none;
+  color: #8b344c;
+  cursor: pointer;
+}
+.summary {
+  margin-top: 35px;
+  padding: 25px;
+  background: #eee8e1;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 21px;
+}
+button {
+  background: #651c32;
+  color: white;
+  border: none;
+  padding: 16px 25px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+#checkout { width: 100%; margin-top: 20px; }
+.empty {
+  padding: 45px 10px;
+  text-align: center;
+  color: #746963;
+}
+footer {
+  text-align: center;
+  background: #211b1b;
+  color: white;
+  padding: 35px;
+  margin-top: 70px;
+}
+@media(max-width: 550px) {
+  header { flex-direction: column; gap: 15px; }
+  h1 { font-size: 34px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RMO ÉLAN</div>
+  <a href="shop.html">← CONTINUE SHOPPING</a>
+</header>
+
+<main>
+  <h1>Your Shopping Bag</h1>
+  <p class="subtitle">Your selected RMO ÉLAN pieces, together.</p>
+
+  <div id="items"></div>
+
+  <div class="summary">
+    <div class="total">
+      <span>Subtotal</span>
+      <strong id="total">₦0</strong>
+    </div>
+    <p class="subtitle">
+      Delivery charges and final payment will be calculated at checkout.
+    </p>
+    <button id="checkout">PROCEED TO CHECKOUT</button>
+  </div>
+</main>
+
+<footer>
+  <h2>RMO ÉLAN</h2>
+  <p>Design Without Convention</p>
+</footer>
+
+<script>
+function getBag() {
+  try {
+    return JSON.parse(localStorage.getItem("rmoBag")) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveBag(bag) {
+  localStorage.setItem("rmoBag", JSON.stringify(bag));
+}
+
+function displayBag() {
+  const bag = getBag();
+  const items = document.getElementById("items");
+  const total = document.getElementById("total");
+
+  items.innerHTML = "";
+
+  if (bag.length === 0) {
+    items.innerHTML = `
+      <div class="empty">
+        <h2>Your bag is waiting for something beautiful.</h2>
+        <p>You haven't added any pieces yet.</p>
+        <a href="shop.html">EXPLORE OUR COLLECTIONS →</a>
+      </div>`;
+  }
+
+  let sum = 0;
+
+  bag.forEach((product, index) => {
+    const price = product.price == null ? null : Number(product.price);
+    if (price !== null && Number.isFinite(price)) {
+  sum += price;
+}
+
+    const item = document.createElement("div");
+    item.className = "item";
+
+    const details = document.createElement("div");
+    const name = document.createElement("h3");
+    name.textContent = product.name || "RMO ÉLAN item";
+
+   const description = document.createElement("p"); 
+    description.textContent =
+      [product.colour, product.type, product.size]
+      .filter(Boolean).join(" · ");
+
+    const amount = document.createElement("p");
+amount.textContent = price === null
+  ? "Price to be confirmed"
+  : "₦" + price.toLocaleString("en-NG");
+
+    details.append(name, description, amount);
+
+    const remove = document.createElement("button");
+    remove.className = "remove";
+    remove.textContent = "REMOVE";
+    remove.addEventListener("click", () => {
+      const updated = getBag();
+      updated.splice(index, 1);
+      saveBag(updated);
+      displayBag();
+    });
+
+    item.append(details, remove);
+    items.append(item);
+  });
+
+  const hasUnpricedItems = bag.some(product => product.price == null || product.price === "");
+total.textContent = hasUnpricedItems
+  ? "To be confirmed"
+  : "₦" + sum.toLocaleString("en-NG");
+
+}
+document.getElementById("checkout").addEventListener("click", () => {
+  if (getBag().length === 0) {
+    alert("Your shopping bag is empty. Explore our collections first.");
+  } else {
+    window.location.href = "checkout.html";
+  }
+});
+
+displayBag();
+</script>
+
+</body>
+</html>
+

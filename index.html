@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMO ÉLAN | Design Without Convention</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      color: #211b1b;
+      background: #f8f5f0;
+    }
+    
+header {
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e4d9d0;
+  background: #f8f5f0;
+  position: relative;
+  z-index: 10;
+}
+
+    
+.logo img {
+  height: 130px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+nav a {
+  color: #211b1b;
+  text-decoration: none;
+  margin-left: 30px;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2.2px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #9b6b48;
+}
+
+    
+.hero {
+  min-height: 650px;
+  background: linear-gradient(135deg, #4b1427, #651c32 55%, #7a3449);
+  color: #fffaf3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero p {
+  letter-spacing: 5px;
+  font: 11px Arial, sans-serif;
+  line-height: 2;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 9vw, 92px);
+  font-weight: normal;
+  letter-spacing: 7px;
+  margin: 30px 0;
+}
+
+.hero a {
+  color: #fffaf3;
+  border: 1px solid #c6a477;
+  padding: 17px 36px;
+  text-decoration: none;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2.5px;
+  margin-top: 25px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hero a:hover {
+  background: #c6a477;
+  color: #211b1b;
+}
+
+    
+section {
+  padding: 95px 7%;
+  text-align: center;
+}
+
+.intro {
+  max-width: 720px;
+  margin: auto;
+  line-height: 2;
+  letter-spacing: 0.3px;
+}
+
+h2 {
+  color: #651c32;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.collections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 28px;
+  margin-top: 45px;
+}
+
+    .collection {
+  min-height: 340px;
+  background: linear-gradient(145deg, #eee5dc, #d9c9bd);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 34px;
+  text-align: left;
+  border: 1px solid #e4d8ce;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.collection:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(33, 27, 27, 0.10);
+}
+
+.collection:nth-child(2) {
+  background: linear-gradient(145deg, #e5d8ce, #cbb8ab);
+}
+
+.collection h3 {
+  font-size: 27px;
+  font-weight: normal;
+  color: #211b1b;
+}
+
+.collection a {
+  color: #651c32;
+  margin-top: 14px;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+
+.collection a:hover {
+  color: #9b6b48;
+}
+    footer {
+      background: #211b1b;
+      color: #fffaf3;
+      padding: 40px 7%;
+      text-align: center;
+      line-height: 2;
+    }
+    @media (max-width: 650px) {
+      header { flex-direction: column; gap: 18px; }
+      nav a { margin: 0 7px; }
+      section { padding: 55px 6%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+  <img src="rmo-elan-logo.png" alt="RMO ÉLAN">
+</div>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="shop.html">SHOP</a>
+      <a href="#women">WOMEN</a>
+      <a href="#headwear">HEADWEAR</a>
+      <a href="#story">OUR STORY</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+      <p>CONTEMPORARY AFRICAN LUXURY</p>
+      <h1>RMO ÉLAN</h1>
+      <p>DESIGN WITHOUT CONVENTION</p>
+      <br><br>
+      <a href="#women">DISCOVER THE COLLECTION</a>
+    </div>
+
+    <section id="story">
+      <div class="intro">
+        <h2>Beyond the Ordinary</h2>
+        <p>
+          RMO ÉLAN is a fashion house built on elegance,
+          individuality and the beauty of unconventional design.
+          We bring together refined clothing and distinctive
+          headwear, created with intention and creativity.
+        </p>
+      </div>
+    </section>
+
+    <section id="women">
+      <h2>Explore Our Collections</h2>
+      <div class="collections">
+        <div class="collection">
+          <h3>Women's Collection</h3>
+          <a href="#contact">EXPLORE COLLECTION →</a>
+        </div>
+        <div class="collection" id="headwear">
+          <h3>Headwear</h3>
+          <a href="#contact">EXPLORE COLLECTION →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2 style="color:#fffaf3">RMO ÉLAN</h2>
+    <p>Design Without Convention</p>
+    <p>More than fashion. A point of view.</p>
+    <p>© 2026 RMO ÉLAN. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

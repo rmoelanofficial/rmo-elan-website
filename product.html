@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product | RMO ÉLAN</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f8f5f0;
+  color: #241d1d;
+  font-family: Georgia, serif;
+}
+header {
+  padding: 22px 7%;
+  border-bottom: 1px solid #ded5ce;
+  display: flex;
+  justify-content: space-between;
+}
+.logo { color: #651c32; font-size: 25px; letter-spacing: 3px; }
+a { color: #651c32; text-decoration: none; }
+main {
+  max-width: 950px;
+  margin: 55px auto;
+  padding: 0 22px;
+}
+h1, h2 { color: #651c32; font-weight: normal; }
+h1 { font-size: 38px; }
+.product-box {
+  background: #eee8e1;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #78665f;
+  padding: 25px;
+}
+.price { font-size: 23px; }
+form {
+  margin-top: 35px;
+  display: grid;
+  gap: 17px;
+}
+label { display: block; margin-bottom: 8px; }
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  background: white;
+  border: 1px solid #cfc3ba;
+  font: 14px Arial, sans-serif;
+}
+button {
+  padding: 16px;
+  background: #651c32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+#measurements { display: none; }
+.note { font: 13px Arial, sans-serif; line-height: 1.6; color: #655b56; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RMO ÉLAN</div>
+  <a href="shop.html">← BACK TO SHOP</a>
+</header>
+
+<main>
+  <div class="product-box">
+    <div>
+      <h2>Product Photography</h2>
+      <p>Our actual garment photographs will appear here.</p>
+    </div>
+  </div>
+
+  <h1>RMO ÉLAN Signature Design</h1>
+  <p class="price">Price to be confirmed</p>
+  <p>
+    An expression of elegance, individuality and
+    unconventional design. Discover the RMO ÉLAN experience.
+  </p>
+
+  <form id="orderForm">
+    <div>
+      <label for="type">How would you like your outfit?</label>
+      <select id="type" required>
+        <option value="">Choose an option</option>
+        <option>Ready-to-wear</option>
+        <option>Made-to-order</option>
+        <option>Made-to-measure</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="colour">Choose your colour</label>
+      <select id="colour" required>
+        <option value="">Select a colour</option>
+        <option>Black</option>
+        <option>White</option>
+        <option>Ivory</option>
+        <option>Burgundy</option>
+        <option>Red</option>
+        <option>Gold</option>
+        <option>Silver</option>
+        <option>Brown</option>
+        <option>Beige</option>
+        <option>Pink</option>
+        <option>Purple</option>
+        <option>Blue</option>
+        <option>Green</option>
+        <option>Yellow</option>
+        <option>Orange</option>
+        <option>Other / Custom colour</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="size">Choose your size</label>
+      <select id="size">
+        <option value="">Select a size</option>
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+        <option>Custom measurements</option>
+      </select>
+    </div>
+
+    <div id="measurements">
+      <h2>Your Measurements</h2>
+      <p class="note">
+        Enter measurements in centimetres. Our team will confirm
+        the details with you before production.
+      </p>
+
+      <div>
+        <label for="bust">Bust (cm)</label>
+        <input type="number" id="bust" min="1">
+      </div>
+      <div>
+        <label for="waist">Waist (cm)</label>
+        <input type="number" id="waist" min="1">
+      </div>
+      <div>
+        <label for="hips">Hips (cm)</label>
+        <input type="number" id="hips" min="1">
+      </div>
+      <div>
+        <label for="shoulder">Shoulder (cm)</label>
+        <input type="number" id="shoulder" min="1">
+      </div>
+      <div>
+        <label for="sleeve">Sleeve length (cm)</label>
+        <input type="number" id="sleeve" min="1">
+      </div>
+      <div>
+        <label for="length">Desired garment length (cm)</label>
+        <input type="number" id="length" min="1">
+      </div>
+    </div>
+
+    <div>
+      <label for="notes">Additional requests</label>
+      <textarea id="notes" rows="4"
+        placeholder="Tell us about any special preferences..."></textarea>
+    </div>
+
+    <p class="note">
+      This is a demonstration form. Your information is not
+      submitted or stored yet. Secure ordering will be added later.
+    </p>
+
+    <button type="submit">CONTINUE TO ORDER</button>
+  </form>
+</main>
+
+<script>
+const type = document.getElementById("type");
+const size = document.getElementById("size");
+const measurements = document.getElementById("measurements");
+
+function updateMeasurements() {
+  const show =
+    type.value === "Made-to-measure" ||
+    size.value === "Custom measurements";
+
+  measurements.style.display = show ? "grid" : "none";
+}
+
+type.addEventListener("change", updateMeasurements);
+size.addEventListener("change", updateMeasurements);
+
+document.getElementById("orderForm").addEventListener("submit", event => {
+  event.preventDefault();
+  
+</script>
+
+</body>
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const item = {
+        name: "RMO ÉLAN Signature Design",
+        price: null,
+        colour: document.getElementById("colour").value,
+        type: document.getElementById("type").value,
+        size: document.getElementById("size").value,
+        notes: document.getElementById("notes").value
+    };
+
+    let bag = JSON.parse(localStorage.getItem("rmoBag")) || [];
+    bag.push(item);
+    localStorage.setItem("rmoBag", JSON.stringify(bag));
+
+    window.location.href = "bag.html";
+});
+</script>
+</html>
+
