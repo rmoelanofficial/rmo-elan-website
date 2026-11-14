@@ -74,12 +74,19 @@ input { flex: 1; min-width: 0; }
   gap: 22px;
 }
 .product {
-  background: #eee8e1;
+  background: linear-gradient(145deg, #eee5dc, #d9c9bd);
+  border: 1px solid #e4d8ce;
   min-height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(33, 27, 27, 0.10);
 }
 .product h3 {
   font-size: 22px;
@@ -121,6 +128,7 @@ footer {
   <select id="category">
     <option value="all">All collections</option>
     <option value="women">Women's clothing</option>
+    <option value="men">Men's clothing</option>
     <option value="headwear">Headwear</option>
   </select>
 </div>
@@ -147,7 +155,28 @@ footer {
   </div>
 </section>
 
-<section class="collection" data-category="headwear">
+<section class="collection" data-category="men">
+  <h2>Men's Collection</h2>
+  <div class="products">
+    <div class="product">
+      <h3>Tailored Suits</h3>
+      <p>Refined tailoring with distinctive character.</p>
+    </div>
+    <div class="product">
+      <h3>Blazers & Trousers</h3>
+      <p>Modern sophistication with unconventional details.</p>
+    </div>
+    <div class="product">
+      <h3>Shirts & Sets</h3>
+      <p>Effortless elegance for every occasion.</p>
+    </div>
+    <div class="product">
+      <h3>Shorts & Blazers</h3>
+      <p>A fresh expression of contemporary style.</p>
+    </div>
+  </div>
+</section>
+  <section class="collection" data-category="headwear">
   <h2>Headwear Collection</h2>
   <div class="products">
     <div class="product">
