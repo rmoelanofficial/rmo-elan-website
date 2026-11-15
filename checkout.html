@@ -116,78 +116,76 @@ footer {
 
 <header>
   <div class="logo">RMO ÉLAN</div>
-  <a href="bag.html">← BACK TO BAG</a>
+  <a href="bag.html" data-translate="backToBag">← BACK TO BAG</a>
 </header>
 
 <main>
-  <h1>Complete Your Order</h1>
-  <p class="subtitle">
+  <h1 data-translate="checkoutTitle">Complete Your Order</h1>
+  <p class="subtitle" data-translate="checkoutSubtitle">
     A thoughtful shopping experience, created by RMO ÉLAN.
   </p>
 
  <div class="section">
-  <h2>Your Selected Items</h2>
+  <h2 data-translate="selectedItems">Your Selected Items</h2>
   <div id="checkoutItems"></div>
   <div class="total">
-    <span>Order Subtotal</span>
+    <span data-translate="orderSubtotal">Order Subtotal</span>
     <strong id="checkoutTotal">₦0</strong>
   </div>
 </div> 
 <div class="section">
-    <h2>Customer Information</h2>
+    <h2 data-translate="customerInformation">Customer Information</h2>
 
     <form id="checkoutForm">
 
-      <label>Full Name</label>
-      <input type="text" required placeholder="Enter your full name">
+      <label data-translate="fullName">Full Name</label>
+      <input type="text" required placeholder="Enter your full name" data-translate-placeholder="fullNamePlaceholder">
 
-      <label>Email Address</label>
-      <input type="email" required placeholder="Enter your email">
+      <label data-translate="emailAddress">Email Address</label>
+      <input type="email" required placeholder="Enter your email" data-translate-placeholder="emailPlaceholder">
 
-      <label>Phone Number</label>
-      <input type="tel" required placeholder="Enter your phone number">
+      <label data-translate="phoneNumber">Phone Number</label>
+      <input type="tel" required placeholder="Enter your phone number" data-translate-placeholder="phonePlaceholder">
 
-      <label>Delivery Address</label>
-      <textarea required placeholder="Enter your complete delivery address"></textarea>
+      <label data-translate="deliveryAddress">Delivery Address</label>
+      <textarea required placeholder="Enter your complete delivery address" data-translate-placeholder="addressPlaceholder"></textarea>
 
-      <label>Country</label>
-      <input type="text" required placeholder="Enter your country">
+      <label data-translate="country">Country</label>
+      <input type="text" required placeholder="Enter your country" data-translate-placeholder="countryPlaceholder">
 
-      <label>Additional Delivery Instructions</label>
-      <textarea placeholder="Anything we should know?"></textarea>
+      <label data-translate="additionalDeliveryInstructions">Additional Delivery Instructions</label>
+      <textarea placeholder="Anything we should know?" data-translate-placeholder="instructionsPlaceholder"></textarea>
 
-      <button type="submit">SUBMIT ORDER DETAILS</button>
+      <button type="submit" data-translate="submitOrderDetails">SUBMIT ORDER DETAILS</button>
 
     </form>
   </div>
 
 
 <div class="section">
-  <h2>Delivery & Payment Summary</h2>
+  <h2 data-translate="deliveryPaymentSummary">Delivery & Payment Summary</h2>
 
-  <p class="note">
+  <p class="note" data-translate="deliveryFeesNote">
     Delivery fees will be confirmed based on your location.
   </p>
 
-  <label>Preferred Delivery Method</label>
+  <label data-translate="preferredDeliveryMethod">Preferred Delivery Method</label>
   <select id="delivery">
-    <option value="standard">Standard Delivery</option>
-    <option value="express">Express Delivery</option>
+    <option value="standard" data-translate="standardDelivery">Standard Delivery</option>
+    <option value="express" data-translate="expressDelivery">Express Delivery</option>
   </select>
 
-  <h3>Payment Method</h3>
-  <p class="note">
-    Secure payment options will be available soon.
-    Your order will not be charged on this preview page.
+  <h3 data-translate="paymentMethod">Payment Method</h3>
+  <p class="note" data-translate="securePaymentNote">
+    Secure payment options will be available soon. Your order will not be charged on this preview page.
   </p>
 
-  <p><strong>Payment status:</strong> Not yet activated</p>
+  <p><strong data-translate="paymentStatus">Payment status:</strong> <span data-translate="notActivated">Not yet activated</span></p>
 </div>
 
 
-  <p class="note">
-    This is a checkout design preview. Customer details are not sent or stored.
-    Secure payments and order processing will be added before the website launches.
+  <p class="note" data-translate="checkoutPreviewNote">
+    This is a checkout design preview. Customer details are not sent or stored. Secure payments and order processing will be added before the website launches.
   </p>
 </main>
 
@@ -196,6 +194,7 @@ footer {
   <p>Design Without Convention</p>
 </footer>
 
+<script src="site-settings.js"></script>
 <script>
 const bag = JSON.parse(localStorage.getItem("rmoBag")) || [];
 
@@ -218,14 +217,26 @@ bag.forEach(product => {
 
 const hasUnpricedItems = bag.some(product => product.price == null || product.price === "");
 
-checkoutTotal.textContent = hasUnpricedItems
-  ? "To be confirmed"
-  : "₦" + subtotal.toLocaleString("en-NG");
+function updateCheckoutTotal() {
+  checkoutTotal.textContent = hasUnpricedItems
+    ? "To be confirmed"
+    : formatRmoPrice(subtotal);
+}
+
+window.addEventListener("rmoRatesLoaded", updateCheckoutTotal);
+window.addEventListener("rmoCurrencyChanged", updateCheckoutTotal);
+
+updateCheckoutTotal();
+translateRmoPage();
+window.addEventListener("rmoLanguageChanged", translateRmoPage);
 document.getElementById("checkoutForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  alert("Thank you! Secure order processing will be activated soon.");
+const language = getRmoLanguage();
+  const messages = RMO_TRANSLATIONS[language] || RMO_TRANSLATIONS.en;
+  alert(messages.checkoutAlert || RMO_TRANSLATIONS.en.checkoutAlert);
 });
 </script>
+
 
 </body>
 </html>

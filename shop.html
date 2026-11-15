@@ -74,13 +74,13 @@ input { flex: 1; min-width: 0; }
   gap: 22px;
 }
 .product {
-  background: linear-gradient(145deg, #eee5dc, #d9c9bd);
-  border: 1px solid #e4d8ce;
-  min-height: 260px;
+  background: linear-gradient(145deg, #eee8e1, #ded0c7);
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding: 25px;
+  border: 1px solid #e0d5cc;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -107,20 +107,328 @@ footer {
   .controls { flex-direction: column; }
   h1 { font-size: 38px; }
 }
+
+
+/* RMO ÉLAN EDITORIAL SHOP DESIGN */
+.site-header {
+  min-height: 112px;
+  padding: 10px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #D8C8B2;
+  border-bottom: 1px solid #9b7848;
+}
+.site-header .brand img {
+  display: block;
+  width: 145px;
+  height: 96px;
+  object-fit: contain;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+.header-right span {
+  color: #6F563B;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2.5px;
+}
+.header-right a {
+  color: #29251F;
+  text-decoration: none;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+.header-right a:hover { color: #9b7848; }
+
+.hero {
+  min-height: 570px;
+  padding: 95px 8% 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #fffaf3;
+  background: linear-gradient(125deg, #35101e, #651c32 58%, #381321);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(198,164,119,.28);
+  pointer-events: none;
+}
+.hero .hero-eyebrow {
+  color: #d4b887;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 5px;
+}
+.hero h1 {
+  margin: 30px 0 22px;
+  color: #fffaf3;
+  font-size: clamp(55px, 8vw, 100px);
+  line-height: .98;
+  font-weight: normal;
+  letter-spacing: -2px;
+}
+.hero h1 em {
+  color: #d4b887;
+  font-weight: normal;
+}
+.hero .hero-description {
+  max-width: 440px;
+  color: #eaded5;
+  font: 12px Arial, sans-serif;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+.hero-bottom {
+  width: 100%;
+  margin-top: 85px;
+  display: flex;
+  justify-content: space-between;
+  color: #d4b887;
+  font: 8px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+@media(max-width: 700px) {
+  .site-header { padding: 8px 5%; min-height: 85px; flex-wrap: wrap; }
+  .site-header .brand img { width: 105px; height: 70px; }
+  .header-right { gap: 12px; }
+  .header-right span { display: none; }
+  .hero { min-height: 480px; padding: 75px 8% 25px; }
+  .hero-bottom { margin-top: 65px; font-size: 7px; letter-spacing: 1px; }
+}
+
+
+/* RMO HEADWEAR EDITORIAL GALLERY */
+.headwear-gallery {
+  columns: 4;
+  column-gap: 22px;
+  margin-top: 42px;
+}
+
+.headwear-item {
+  break-inside: avoid;
+  margin: 0 0 22px;
+  padding: 10px;
+  background: #eee8e1;
+  border: 1px solid #e0d5cc;
+  transition: transform .3s ease;
+}
+
+.headwear-item:hover {
+  transform: translateY(-4px);
+}
+
+.headwear-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f8f5f0;
+}
+
+.headwear-item figcaption {
+  padding: 14px 5px 5px;
+  color: #6f563b;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+@media(max-width: 900px) {
+  .headwear-gallery { columns: 3; }
+}
+
+@media(max-width: 600px) {
+  .headwear-gallery { columns: 2; column-gap: 12px; }
+  .headwear-item { margin-bottom: 12px; padding: 7px; }
+}
+
+@media(max-width: 360px) {
+  .headwear-gallery { columns: 1; }
+}
+
+
+/* RMO ÉLAN HEADWEAR CATEGORIES */
+.headwear-intro {
+  max-width: 650px;
+  color: #6f563b;
+  line-height: 1.8;
+  margin: 12px 0 35px;
+}
+
+.headwear-category {
+  padding: 30px 0;
+  border-top: 1px solid #dfd3c7;
+}
+
+.headwear-category h3 {
+  color: #29251f;
+  font: 30px Georgia, serif;
+  margin: 0 0 10px;
+}
+
+.headwear-category > p {
+  color: #6f563b;
+  line-height: 1.7;
+}
+
+.headwear-category .coming-soon {
+  display: inline-block;
+  margin-top: 12px;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+  color: #9b7848;
+}
+
+
+/* RMO ÉLAN CLICKABLE HEADWEAR COLLECTION */
+.headwear-intro {
+  max-width: 650px;
+  color: #6f563b;
+  line-height: 1.8;
+  margin: 12px 0 35px;
+}
+
+.headwear-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.headwear-tile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 155px;
+  padding: 25px;
+  background: #eee5d9;
+  border: 1px solid #d8c8b2;
+  text-decoration: none;
+  color: inherit;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.headwear-tile:last-child {
+  grid-column: 1 / -1;
+}
+
+.headwear-tile:hover {
+  background: #e8dccd;
+  border-color: #9b7848;
+  transform: translateY(-3px);
+}
+
+.headwear-tile summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 155px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headwear-tile summary::-webkit-details-marker {
+  display: none;
+}
+
+.headwear-number {
+  color: #9b7848;
+  font: 30px Georgia, serif;
+}
+
+.headwear-title {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.headwear-title strong {
+  color: #29251f;
+  font: 22px Georgia, serif;
+  letter-spacing: 1px;
+}
+
+.headwear-title small {
+  color: #6f563b;
+  font: 11px Arial, sans-serif;
+  letter-spacing: .5px;
+}
+
+.headwear-title em {
+  color: #9b7848;
+  font: normal 9px Arial, sans-serif;
+  letter-spacing: 1.5px;
+  margin-top: 7px;
+}
+
+.headwear-plus {
+  color: #9b7848;
+  font: 30px Georgia, serif;
+  margin-left: auto;
+  transition: transform .25s ease;
+}
+
+.headwear-tile[open] .headwear-plus {
+  transform: rotate(45deg);
+}
+
+.headwear-panel {
+  padding: 5px 25px 28px;
+  border-top: 1px solid #d8c8b2;
+}
+
+.headwear-panel > p {
+  color: #6f563b;
+  line-height: 1.7;
+}
+
+.headwear-panel .coming-soon {
+  color: #9b7848;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+@media(max-width: 600px) {
+  .headwear-boxes { grid-template-columns: 1fr; gap: 12px; }
+  .headwear-tile:last-child { grid-column: auto; }
+  .headwear-tile { min-height: 125px; padding: 20px; gap: 14px; }
+  .headwear-title strong { font-size: 19px; }
+}
+
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">RMO ÉLAN</div>
-  <a href="index.html">← BACK HOME</a>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="rmo-elan-logo.png" alt="RMO ÉLAN">
+  </a>
+  <div class="header-right">
+    <span>CONTEMPORARY AFRICAN LUXURY</span>
+    <a href="index.html">← BACK HOME</a>
+  </div>
 </header>
 
-<div class="hero">
-  <p>DISCOVER RMO ÉLAN</p>
-  <h1>Our Collections</h1>
-  <p>DESIGN WITHOUT CONVENTION</p>
-</div>
+<section class="hero">
+  <p class="hero-eyebrow">THE WORLD OF RMO ÉLAN</p>
+  <h1>Beyond the<br><em>Expected.</em></h1>
+  <p class="hero-description">A study in elegance, individuality and unconventional beauty.</p>
+  <div class="hero-bottom">
+    <span>RMO ÉLAN</span>
+    <span>DESIGN WITHOUT CONVENTION</span>
+    <span>EST. 2026</span>
+  </div>
+</section>
 
 <div class="controls">
   <input id="search" type="search"
@@ -128,7 +436,7 @@ footer {
   <select id="category">
     <option value="all">All collections</option>
     <option value="women">Women's clothing</option>
-    <option value="men">Men's clothing</option>
+<option value="men">Men's clothing</option>
     <option value="headwear">Headwear</option>
   </select>
 </div>
@@ -160,37 +468,72 @@ footer {
   <div class="products">
     <div class="product">
       <h3>Tailored Suits</h3>
-      <p>Refined tailoring with distinctive character.</p>
+      <p>Refined tailoring with distinctive details.</p>
     </div>
     <div class="product">
       <h3>Blazers & Trousers</h3>
-      <p>Modern sophistication with unconventional details.</p>
+      <p>Modern sophistication for every occasion.</p>
     </div>
     <div class="product">
       <h3>Shirts & Sets</h3>
-      <p>Effortless elegance for every occasion.</p>
+      <p>Understated elegance, designed differently.</p>
     </div>
     <div class="product">
       <h3>Shorts & Blazers</h3>
-      <p>A fresh expression of contemporary style.</p>
+      <p>Unexpected combinations with effortless style.</p>
     </div>
   </div>
 </section>
-  <section class="collection" data-category="headwear">
+<section class="collection" data-category="headwear">
   <h2>Headwear Collection</h2>
-  <div class="products">
-    <div class="product">
-      <h3>Gele</h3>
-      <p>Beautifully handcrafted headwear.</p>
-    </div>
-    <div class="product">
-      <h3>Fascinators</h3>
-      <p>Distinctive pieces for special occasions.</p>
-    </div>
-    <div class="product">
-      <h3>Turbans & More</h3>
-      <p>Creative headwear for individual expression.</p>
-    </div>
+  <p class="headwear-intro">A considered collection of headpieces shaped by artistry, culture and individual expression.</p>
+
+  <div class="headwear-boxes">
+    <a class="headwear-tile" href="gele.html">
+      <span class="headwear-number">01</span>
+      <span class="headwear-title">
+        <strong>GELE</strong>
+        <small>Traditional elegance</small>
+        <em>EXPLORE COLLECTION</em>
+      </span>
+      <span class="headwear-plus">→</span>
+    </a>
+    <a class="headwear-tile" href="fascinators.html">
+      <span class="headwear-number">02</span>
+      <span class="headwear-title">
+        <strong>FASCINATORS</strong>
+        <small>Occasion headpieces</small>
+        <em>EXPLORE COLLECTION</em>
+      </span>
+      <span class="headwear-plus">→</span>
+    </a>
+    <a class="headwear-tile" href="turbans.html">
+      <span class="headwear-number">03</span>
+      <span class="headwear-title">
+        <strong>TURBANS</strong>
+        <small>12 distinctive designs</small>
+        <em>EXPLORE COLLECTION</em>
+      </span>
+      <span class="headwear-plus">→</span>
+    </a>
+    <a class="headwear-tile" href="hats.html">
+      <span class="headwear-number">04</span>
+      <span class="headwear-title">
+        <strong>HATS</strong>
+        <small>Traditional & modern</small>
+        <em>EXPLORE COLLECTION</em>
+      </span>
+      <span class="headwear-plus">→</span>
+    </a>
+    <a class="headwear-tile" href="other-headwear.html">
+      <span class="headwear-number">05</span>
+      <span class="headwear-title">
+        <strong>OTHER HEADWEAR</strong>
+        <small>Discover more creations</small>
+        <em>EXPLORE COLLECTION</em>
+      </span>
+      <span class="headwear-plus">→</span>
+    </a>
   </div>
 </section>
 
@@ -200,6 +543,7 @@ footer {
 </footer>
 
 <script>
+
 const search = document.getElementById("search");
 const category = document.getElementById("category");
 const sections = document.querySelectorAll(".collection");
@@ -221,6 +565,7 @@ search.addEventListener("input", filterShop);
 category.addEventListener("change", filterShop);
 </script>
 
+<script src="site-settings.js"></script>
 </body>
 </html>
 

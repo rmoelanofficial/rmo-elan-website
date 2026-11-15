@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopping Bag | RMO ÉLAN</title>
+<title data-translate="pageTitle">Shopping Bag | RMO ÉLAN</title>
 <style>
 * { box-sizing: border-box; }
 body {
@@ -102,24 +102,24 @@ footer {
 
 <header>
   <div class="logo">RMO ÉLAN</div>
-  <a href="shop.html">← CONTINUE SHOPPING</a>
+  <a href="shop.html">← <span data-translate="continueShopping">CONTINUE SHOPPING</span></a>
 </header>
 
 <main>
-  <h1>Your Shopping Bag</h1>
-  <p class="subtitle">Your selected RMO ÉLAN pieces, together.</p>
+  <h1 data-translate="bagTitle">Your Shopping Bag</h1>
+  <p class="subtitle" data-translate="bagSubtitle">Your selected RMO ÉLAN pieces, together.</p>
 
   <div id="items"></div>
 
   <div class="summary">
     <div class="total">
-      <span>Subtotal</span>
+      <span data-translate="subtotal">Subtotal</span>
       <strong id="total">₦0</strong>
     </div>
-    <p class="subtitle">
+    <p class="subtitle" data-translate="deliveryNote">
       Delivery charges and final payment will be calculated at checkout.
     </p>
-    <button id="checkout">PROCEED TO CHECKOUT</button>
+    <button id="checkout" data-translate="proceedCheckout">PROCEED TO CHECKOUT</button>
   </div>
 </main>
 
@@ -127,6 +127,8 @@ footer {
   <h2>RMO ÉLAN</h2>
   <p>Design Without Convention</p>
 </footer>
+
+<script src="site-settings.js"></script>
 
 <script>
 function getBag() {
@@ -141,6 +143,377 @@ function saveBag(bag) {
   localStorage.setItem("rmoBag", JSON.stringify(bag));
 }
 
+function translateBagValue(value) {
+  const language = getRmoLanguage();
+  const translations = {
+    "es": {
+        "Ready-to-wear": "Listo para llevar",
+        "Made-to-order": "Hecho por encargo",
+        "Made-to-measure": "A medida",
+        "Black": "Negro",
+        "White": "Blanco",
+        "Ivory": "Marfil",
+        "Burgundy": "Burdeos",
+        "Red": "Rojo",
+        "Gold": "Dorado",
+        "Silver": "Plateado",
+        "Brown": "Marrón",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Morado",
+        "Blue": "Azul",
+        "Green": "Verde",
+        "Yellow": "Amarillo",
+        "Orange": "Naranja",
+        "Other / Custom colour": "Otro / Color personalizado",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Medidas personalizadas"
+    },
+    "pt": {
+        "Ready-to-wear": "Pronto a vestir",
+        "Made-to-order": "Feito por encomenda",
+        "Made-to-measure": "Feito à medida",
+        "Black": "Preto",
+        "White": "Branco",
+        "Ivory": "Marfim",
+        "Burgundy": "Bordô",
+        "Red": "Vermelho",
+        "Gold": "Dourado",
+        "Silver": "Prateado",
+        "Brown": "Castanho",
+        "Beige": "Bege",
+        "Pink": "Rosa",
+        "Purple": "Roxo",
+        "Blue": "Azul",
+        "Green": "Verde",
+        "Yellow": "Amarelo",
+        "Orange": "Laranja",
+        "Other / Custom colour": "Outro / Cor personalizada",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Medidas personalizadas"
+    },
+    "ar": {
+        "Ready-to-wear": "جاهز للارتداء",
+        "Made-to-order": "حسب الطلب",
+        "Made-to-measure": "مفصل حسب المقاس",
+        "Black": "أسود",
+        "White": "أبيض",
+        "Ivory": "عاجي",
+        "Burgundy": "عنابي",
+        "Red": "أحمر",
+        "Gold": "ذهبي",
+        "Silver": "فضي",
+        "Brown": "بني",
+        "Beige": "بيج",
+        "Pink": "وردي",
+        "Purple": "أرجواني",
+        "Blue": "أزرق",
+        "Green": "أخضر",
+        "Yellow": "أصفر",
+        "Orange": "برتقالي",
+        "Other / Custom colour": "لون آخر / مخصص",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "مقاسات مخصصة"
+    },
+    "de": {
+        "Ready-to-wear": "Konfektionsware",
+        "Made-to-order": "Auf Bestellung",
+        "Made-to-measure": "Maßanfertigung",
+        "Black": "Schwarz",
+        "White": "Weiß",
+        "Ivory": "Elfenbein",
+        "Burgundy": "Bordeauxrot",
+        "Red": "Rot",
+        "Gold": "Gold",
+        "Silver": "Silber",
+        "Brown": "Braun",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Lila",
+        "Blue": "Blau",
+        "Green": "Grün",
+        "Yellow": "Gelb",
+        "Orange": "Orange",
+        "Other / Custom colour": "Andere / Individuelle Farbe",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Individuelle Maße"
+    },
+    "zh": {
+        "Ready-to-wear": "成衣",
+        "Made-to-order": "按单定制",
+        "Made-to-measure": "量身定制",
+        "Black": "黑色",
+        "White": "白色",
+        "Ivory": "象牙白",
+        "Burgundy": "勃艮第红",
+        "Red": "红色",
+        "Gold": "金色",
+        "Silver": "银色",
+        "Brown": "棕色",
+        "Beige": "米色",
+        "Pink": "粉色",
+        "Purple": "紫色",
+        "Blue": "蓝色",
+        "Green": "绿色",
+        "Yellow": "黄色",
+        "Orange": "橙色",
+        "Other / Custom colour": "其他 / 自定义颜色",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "自定义尺寸"
+    },
+    "ja": {
+        "Ready-to-wear": "既製服",
+        "Made-to-order": "受注生産",
+        "Made-to-measure": "オーダーメイド",
+        "Black": "黒",
+        "White": "白",
+        "Ivory": "アイボリー",
+        "Burgundy": "バーガンディ",
+        "Red": "赤",
+        "Gold": "ゴールド",
+        "Silver": "シルバー",
+        "Brown": "茶色",
+        "Beige": "ベージュ",
+        "Pink": "ピンク",
+        "Purple": "紫",
+        "Blue": "青",
+        "Green": "緑",
+        "Yellow": "黄色",
+        "Orange": "オレンジ",
+        "Other / Custom colour": "その他 / カスタムカラー",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "採寸サイズ"
+    },
+    "it": {
+        "Ready-to-wear": "Prêt-à-porter",
+        "Made-to-order": "Su ordinazione",
+        "Made-to-measure": "Su misura",
+        "Black": "Nero",
+        "White": "Bianco",
+        "Ivory": "Avorio",
+        "Burgundy": "Bordeaux",
+        "Red": "Rosso",
+        "Gold": "Oro",
+        "Silver": "Argento",
+        "Brown": "Marrone",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Viola",
+        "Blue": "Blu",
+        "Green": "Verde",
+        "Yellow": "Giallo",
+        "Orange": "Arancione",
+        "Other / Custom colour": "Altro / Colore personalizzato",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Misure personalizzate"
+    },
+    "sw": {
+        "Ready-to-wear": "Tayari kuvaliwa",
+        "Made-to-order": "Imetengenezwa kwa oda",
+        "Made-to-measure": "Imetengenezwa kwa vipimo",
+        "Black": "Nyeusi",
+        "White": "Nyeupe",
+        "Ivory": "Rangi ya pembe za ndovu",
+        "Burgundy": "Burgundy",
+        "Red": "Nyekundu",
+        "Gold": "Dhahabu",
+        "Silver": "Fedha",
+        "Brown": "Kahawia",
+        "Beige": "Beige",
+        "Pink": "Waridi",
+        "Purple": "Zambarau",
+        "Blue": "Bluu",
+        "Green": "Kijani",
+        "Yellow": "Njano",
+        "Orange": "Machungwa",
+        "Other / Custom colour": "Nyingine / Rangi maalum",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Vipimo maalum"
+    },
+    "nl": {
+        "Ready-to-wear": "Confectiekleding",
+        "Made-to-order": "Op bestelling gemaakt",
+        "Made-to-measure": "Op maat gemaakt",
+        "Black": "Zwart",
+        "White": "Wit",
+        "Ivory": "Ivoor",
+        "Burgundy": "Bordeauxrood",
+        "Red": "Rood",
+        "Gold": "Goud",
+        "Silver": "Zilver",
+        "Brown": "Bruin",
+        "Beige": "Beige",
+        "Pink": "Roze",
+        "Purple": "Paars",
+        "Blue": "Blauw",
+        "Green": "Groen",
+        "Yellow": "Geel",
+        "Orange": "Oranje",
+        "Other / Custom colour": "Anders / Aangepaste kleur",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Aangepaste maten"
+    },
+    "tr": {
+        "Ready-to-wear": "Hazır giyim",
+        "Made-to-order": "Sipariş üzerine",
+        "Made-to-measure": "Özel dikim",
+        "Black": "Siyah",
+        "White": "Beyaz",
+        "Ivory": "Fildişi",
+        "Burgundy": "Bordo",
+        "Red": "Kırmızı",
+        "Gold": "Altın",
+        "Silver": "Gümüş",
+        "Brown": "Kahverengi",
+        "Beige": "Bej",
+        "Pink": "Pembe",
+        "Purple": "Mor",
+        "Blue": "Mavi",
+        "Green": "Yeşil",
+        "Yellow": "Sarı",
+        "Orange": "Turuncu",
+        "Other / Custom colour": "Diğer / Özel renk",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Özel ölçüler"
+    },
+    "hi": {
+        "Ready-to-wear": "रेडी-टू-वियर",
+        "Made-to-order": "ऑर्डर पर बनाया गया",
+        "Made-to-measure": "नाप के अनुसार बनाया गया",
+        "Black": "काला",
+        "White": "सफेद",
+        "Ivory": "आइवरी",
+        "Burgundy": "बरगंडी",
+        "Red": "लाल",
+        "Gold": "सुनहरा",
+        "Silver": "चाँदी",
+        "Brown": "भूरा",
+        "Beige": "बेज",
+        "Pink": "गुलाबी",
+        "Purple": "बैंगनी",
+        "Blue": "नीला",
+        "Green": "हरा",
+        "Yellow": "पीला",
+        "Orange": "नारंगी",
+        "Other / Custom colour": "अन्य / कस्टम रंग",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "कस्टम माप"
+    },
+    "ko": {
+        "Ready-to-wear": "기성복",
+        "Made-to-order": "주문 제작",
+        "Made-to-measure": "맞춤 제작",
+        "Black": "검정",
+        "White": "흰색",
+        "Ivory": "아이보리",
+        "Burgundy": "버건디",
+        "Red": "빨강",
+        "Gold": "금색",
+        "Silver": "은색",
+        "Brown": "갈색",
+        "Beige": "베이지",
+        "Pink": "분홍",
+        "Purple": "보라",
+        "Blue": "파랑",
+        "Green": "초록",
+        "Yellow": "노랑",
+        "Orange": "주황",
+        "Other / Custom colour": "기타 / 사용자 지정 색상",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "맞춤 치수"
+    },
+    "fr": {
+        "Ready-to-wear": "Prêt-à-porter",
+        "Made-to-order": "Sur commande",
+        "Made-to-measure": "Sur mesure",
+        "Black": "Noir",
+        "White": "Blanc",
+        "Ivory": "Ivoire",
+        "Burgundy": "Bordeaux",
+        "Red": "Rouge",
+        "Gold": "Or",
+        "Silver": "Argent",
+        "Brown": "Marron",
+        "Beige": "Beige",
+        "Pink": "Rose",
+        "Purple": "Violet",
+        "Blue": "Bleu",
+        "Green": "Vert",
+        "Yellow": "Jaune",
+        "Orange": "Orange",
+        "Other / Custom colour": "Autre / Couleur personnalisée",
+        "XS": "TP (XS)",
+        "S": "P (S)",
+        "M": "M",
+        "L": "G (L)",
+        "XL": "TG (XL)",
+        "XXL": "TTG (XXL)",
+        "Custom measurements": "Mesures personnalisées"
+    }
+};
+  return translations[language]?.[value] || value;
+}
+
 function displayBag() {
   const bag = getBag();
   const items = document.getElementById("items");
@@ -151,10 +524,11 @@ function displayBag() {
   if (bag.length === 0) {
     items.innerHTML = `
       <div class="empty">
-        <h2>Your bag is waiting for something beautiful.</h2>
-        <p>You haven't added any pieces yet.</p>
-        <a href="shop.html">EXPLORE OUR COLLECTIONS →</a>
+        <h2 data-translate="emptyBagTitle">Your bag is waiting for something beautiful.</h2>
+        <p data-translate="emptyBagMessage">You haven't added any pieces yet.</p>
+        <a href="shop.html"><span data-translate="exploreCollections">EXPLORE OUR COLLECTIONS</span> →</a>
       </div>`;
+    translateRmoPage();
   }
 
   let sum = 0;
@@ -175,18 +549,21 @@ function displayBag() {
    const description = document.createElement("p"); 
     description.textContent =
       [product.colour, product.type, product.size]
-      .filter(Boolean).join(" · ");
+      .filter(Boolean)
+      .map(translateBagValue)
+      .join(" · ");
 
     const amount = document.createElement("p");
 amount.textContent = price === null
   ? "Price to be confirmed"
-  : "₦" + price.toLocaleString("en-NG");
+  : formatRmoPrice(price);
 
     details.append(name, description, amount);
 
     const remove = document.createElement("button");
     remove.className = "remove";
     remove.textContent = "REMOVE";
+    remove.setAttribute("data-translate", "removeItem");
     remove.addEventListener("click", () => {
       const updated = getBag();
       updated.splice(index, 1);
@@ -201,8 +578,7 @@ amount.textContent = price === null
   const hasUnpricedItems = bag.some(product => product.price == null || product.price === "");
 total.textContent = hasUnpricedItems
   ? "To be confirmed"
-  : "₦" + sum.toLocaleString("en-NG");
-
+  : formatRmoPrice(sum);
 }
 document.getElementById("checkout").addEventListener("click", () => {
   if (getBag().length === 0) {
@@ -212,9 +588,11 @@ document.getElementById("checkout").addEventListener("click", () => {
   }
 });
 
+window.addEventListener("rmoRatesLoaded", displayBag);
+window.addEventListener("rmoCurrencyChanged", displayBag);
+window.addEventListener("rmoLanguageChanged", displayBag);
 displayBag();
 </script>
-
 </body>
 </html>
 

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product | RMO ÉLAN</title>
+<title data-translate="productPageTitle">Product | RMO ÉLAN</title>
 <style>
 * { box-sizing: border-box; }
 body {
@@ -68,120 +68,529 @@ button {
 
 <header>
   <div class="logo">RMO ÉLAN</div>
-  <a href="shop.html">← BACK TO SHOP</a>
+  <a href="shop.html" data-translate="backToShop">← BACK TO SHOP</a>
 </header>
 
 <main>
   <div class="product-box">
     <div>
-      <h2>Product Photography</h2>
-      <p>Our actual garment photographs will appear here.</p>
+      <h2 data-translate="productPhotography">Product Photography</h2>
+      <p data-translate="actualPhotos">Our actual garment photographs will appear here.</p>
     </div>
   </div>
 
-  <h1>RMO ÉLAN Signature Design</h1>
-  <p class="price">Price to be confirmed</p>
-  <p>
+  <h1 data-translate="signatureDesign">RMO ÉLAN Signature Design</h1>
+  <p class="price" data-translate="priceTbc">Price to be confirmed</p>
+  <p data-translate="productDescription">
     An expression of elegance, individuality and
     unconventional design. Discover the RMO ÉLAN experience.
   </p>
 
   <form id="orderForm">
     <div>
-      <label for="type">How would you like your outfit?</label>
+      <label for="type" data-translate="outfitQuestion">How would you like your outfit?</label>
       <select id="type" required>
-        <option value="">Choose an option</option>
-        <option>Ready-to-wear</option>
-        <option>Made-to-order</option>
-        <option>Made-to-measure</option>
+        <option value="" data-translate="chooseOption">Choose an option</option>
+        <option value="Ready-to-wear" data-translate="readyWear">Ready-to-wear</option>
+        <option value="Made-to-order" data-translate="madeOrder">Made-to-order</option>
+        <option value="Made-to-measure" data-translate="madeMeasure">Made-to-measure</option>
       </select>
     </div>
 
     <div>
-      <label for="colour">Choose your colour</label>
+      <label for="colour" data-translate="chooseColour">Choose your colour</label>
       <select id="colour" required>
-        <option value="">Select a colour</option>
-        <option>Black</option>
-        <option>White</option>
-        <option>Ivory</option>
-        <option>Burgundy</option>
-        <option>Red</option>
-        <option>Gold</option>
-        <option>Silver</option>
-        <option>Brown</option>
-        <option>Beige</option>
-        <option>Pink</option>
-        <option>Purple</option>
-        <option>Blue</option>
-        <option>Green</option>
-        <option>Yellow</option>
-        <option>Orange</option>
-        <option>Other / Custom colour</option>
+        <option value="" data-translate="selectColour">Select a colour</option>
+        <option value="Black" data-translate-value="Black">Black</option>
+        <option value="White" data-translate-value="White">White</option>
+        <option value="Ivory" data-translate-value="Ivory">Ivory</option>
+        <option value="Burgundy" data-translate-value="Burgundy">Burgundy</option>
+        <option value="Red" data-translate-value="Red">Red</option>
+        <option value="Gold" data-translate-value="Gold">Gold</option>
+        <option value="Silver" data-translate-value="Silver">Silver</option>
+        <option value="Brown" data-translate-value="Brown">Brown</option>
+        <option value="Beige" data-translate-value="Beige">Beige</option>
+        <option value="Pink" data-translate-value="Pink">Pink</option>
+        <option value="Purple" data-translate-value="Purple">Purple</option>
+        <option value="Blue" data-translate-value="Blue">Blue</option>
+        <option value="Green" data-translate-value="Green">Green</option>
+        <option value="Yellow" data-translate-value="Yellow">Yellow</option>
+        <option value="Orange" data-translate-value="Orange">Orange</option>
+        <option value="Other / Custom colour" data-translate-value="Other / Custom colour">Other / Custom colour</option>
       </select>
     </div>
 
     <div>
-      <label for="size">Choose your size</label>
+      <label for="size" data-translate="chooseSize">Choose your size</label>
       <select id="size">
-        <option value="">Select a size</option>
-        <option>XS</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
-        <option>Custom measurements</option>
+        <option value="" data-translate="selectSize">Select a size</option>
+        <option value="XS" data-translate-value="XS">XS</option>
+        <option value="S" data-translate-value="S">S</option>
+        <option value="M" data-translate-value="M">M</option>
+        <option value="L" data-translate-value="L">L</option>
+        <option value="XL" data-translate-value="XL">XL</option>
+        <option value="XXL" data-translate-value="XXL">XXL</option>
+        <option value="Custom measurements" data-translate-value="Custom measurements">Custom measurements</option>
       </select>
     </div>
 
     <div id="measurements">
-      <h2>Your Measurements</h2>
-      <p class="note">
+      <h2 data-translate="yourMeasurements">Your Measurements</h2>
+      <p class="note" data-translate="measurementNote">
         Enter measurements in centimetres. Our team will confirm
         the details with you before production.
       </p>
 
       <div>
-        <label for="bust">Bust (cm)</label>
+        <label for="bust" data-translate="bust">Bust (cm)</label>
         <input type="number" id="bust" min="1">
       </div>
       <div>
-        <label for="waist">Waist (cm)</label>
+        <label for="waist" data-translate="waist">Waist (cm)</label>
         <input type="number" id="waist" min="1">
       </div>
       <div>
-        <label for="hips">Hips (cm)</label>
+        <label for="hips" data-translate="hips">Hips (cm)</label>
         <input type="number" id="hips" min="1">
       </div>
       <div>
-        <label for="shoulder">Shoulder (cm)</label>
+        <label for="shoulder" data-translate="shoulder">Shoulder (cm)</label>
         <input type="number" id="shoulder" min="1">
       </div>
       <div>
-        <label for="sleeve">Sleeve length (cm)</label>
+        <label for="sleeve" data-translate="sleeveLength">Sleeve length (cm)</label>
         <input type="number" id="sleeve" min="1">
       </div>
       <div>
-        <label for="length">Desired garment length (cm)</label>
+        <label for="length" data-translate="garmentLength">Desired garment length (cm)</label>
         <input type="number" id="length" min="1">
       </div>
     </div>
 
     <div>
-      <label for="notes">Additional requests</label>
+      <label for="notes" data-translate="additionalRequests">Additional requests</label>
       <textarea id="notes" rows="4"
-        placeholder="Tell us about any special preferences..."></textarea>
+        placeholder="Tell us about any special preferences..." data-translate-placeholder="notesPlaceholder"></textarea>
     </div>
 
-    <p class="note">
+    <p class="note" data-translate="demoNote">
       This is a demonstration form. Your information is not
       submitted or stored yet. Secure ordering will be added later.
     </p>
 
-    <button type="submit">CONTINUE TO ORDER</button>
+    <button type="submit" data-translate="continueOrder">CONTINUE TO ORDER</button>
   </form>
 </main>
 
+
+<script src="site-settings.js"></script>
+<script>
+function translateProductPlaceholder() {
+  const language = getRmoLanguage();
+  const field = document.getElementById("notes");
+  const dictionary = RMO_TRANSLATIONS[language] || RMO_TRANSLATIONS.en;
+  if (field && dictionary && dictionary.notesPlaceholder) {
+    field.placeholder = dictionary.notesPlaceholder;
+  }
+}
+window.addEventListener("rmoLanguageChanged", translateProductPlaceholder);
+translateProductPlaceholder();
+</script>
+
+
+<script>
+function translateBagValue(value) {
+  const language = getRmoLanguage();
+  const translations = {
+    "es": {
+        "Ready-to-wear": "Listo para llevar",
+        "Made-to-order": "Hecho por encargo",
+        "Made-to-measure": "A medida",
+        "Black": "Negro",
+        "White": "Blanco",
+        "Ivory": "Marfil",
+        "Burgundy": "Burdeos",
+        "Red": "Rojo",
+        "Gold": "Dorado",
+        "Silver": "Plateado",
+        "Brown": "Marrón",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Morado",
+        "Blue": "Azul",
+        "Green": "Verde",
+        "Yellow": "Amarillo",
+        "Orange": "Naranja",
+        "Other / Custom colour": "Otro / Color personalizado",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Medidas personalizadas"
+    },
+    "pt": {
+        "Ready-to-wear": "Pronto a vestir",
+        "Made-to-order": "Feito por encomenda",
+        "Made-to-measure": "Feito à medida",
+        "Black": "Preto",
+        "White": "Branco",
+        "Ivory": "Marfim",
+        "Burgundy": "Bordô",
+        "Red": "Vermelho",
+        "Gold": "Dourado",
+        "Silver": "Prateado",
+        "Brown": "Castanho",
+        "Beige": "Bege",
+        "Pink": "Rosa",
+        "Purple": "Roxo",
+        "Blue": "Azul",
+        "Green": "Verde",
+        "Yellow": "Amarelo",
+        "Orange": "Laranja",
+        "Other / Custom colour": "Outro / Cor personalizada",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Medidas personalizadas"
+    },
+    "ar": {
+        "Ready-to-wear": "جاهز للارتداء",
+        "Made-to-order": "حسب الطلب",
+        "Made-to-measure": "مفصل حسب المقاس",
+        "Black": "أسود",
+        "White": "أبيض",
+        "Ivory": "عاجي",
+        "Burgundy": "عنابي",
+        "Red": "أحمر",
+        "Gold": "ذهبي",
+        "Silver": "فضي",
+        "Brown": "بني",
+        "Beige": "بيج",
+        "Pink": "وردي",
+        "Purple": "أرجواني",
+        "Blue": "أزرق",
+        "Green": "أخضر",
+        "Yellow": "أصفر",
+        "Orange": "برتقالي",
+        "Other / Custom colour": "لون آخر / مخصص",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "مقاسات مخصصة"
+    },
+    "de": {
+        "Ready-to-wear": "Konfektionsware",
+        "Made-to-order": "Auf Bestellung",
+        "Made-to-measure": "Maßanfertigung",
+        "Black": "Schwarz",
+        "White": "Weiß",
+        "Ivory": "Elfenbein",
+        "Burgundy": "Bordeauxrot",
+        "Red": "Rot",
+        "Gold": "Gold",
+        "Silver": "Silber",
+        "Brown": "Braun",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Lila",
+        "Blue": "Blau",
+        "Green": "Grün",
+        "Yellow": "Gelb",
+        "Orange": "Orange",
+        "Other / Custom colour": "Andere / Individuelle Farbe",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Individuelle Maße"
+    },
+    "zh": {
+        "Ready-to-wear": "成衣",
+        "Made-to-order": "按单定制",
+        "Made-to-measure": "量身定制",
+        "Black": "黑色",
+        "White": "白色",
+        "Ivory": "象牙白",
+        "Burgundy": "勃艮第红",
+        "Red": "红色",
+        "Gold": "金色",
+        "Silver": "银色",
+        "Brown": "棕色",
+        "Beige": "米色",
+        "Pink": "粉色",
+        "Purple": "紫色",
+        "Blue": "蓝色",
+        "Green": "绿色",
+        "Yellow": "黄色",
+        "Orange": "橙色",
+        "Other / Custom colour": "其他 / 自定义颜色",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "自定义尺寸"
+    },
+    "ja": {
+        "Ready-to-wear": "既製服",
+        "Made-to-order": "受注生産",
+        "Made-to-measure": "オーダーメイド",
+        "Black": "黒",
+        "White": "白",
+        "Ivory": "アイボリー",
+        "Burgundy": "バーガンディ",
+        "Red": "赤",
+        "Gold": "ゴールド",
+        "Silver": "シルバー",
+        "Brown": "茶色",
+        "Beige": "ベージュ",
+        "Pink": "ピンク",
+        "Purple": "紫",
+        "Blue": "青",
+        "Green": "緑",
+        "Yellow": "黄色",
+        "Orange": "オレンジ",
+        "Other / Custom colour": "その他 / カスタムカラー",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "採寸サイズ"
+    },
+    "it": {
+        "Ready-to-wear": "Prêt-à-porter",
+        "Made-to-order": "Su ordinazione",
+        "Made-to-measure": "Su misura",
+        "Black": "Nero",
+        "White": "Bianco",
+        "Ivory": "Avorio",
+        "Burgundy": "Bordeaux",
+        "Red": "Rosso",
+        "Gold": "Oro",
+        "Silver": "Argento",
+        "Brown": "Marrone",
+        "Beige": "Beige",
+        "Pink": "Rosa",
+        "Purple": "Viola",
+        "Blue": "Blu",
+        "Green": "Verde",
+        "Yellow": "Giallo",
+        "Orange": "Arancione",
+        "Other / Custom colour": "Altro / Colore personalizzato",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Misure personalizzate"
+    },
+    "sw": {
+        "Ready-to-wear": "Tayari kuvaliwa",
+        "Made-to-order": "Imetengenezwa kwa oda",
+        "Made-to-measure": "Imetengenezwa kwa vipimo",
+        "Black": "Nyeusi",
+        "White": "Nyeupe",
+        "Ivory": "Rangi ya pembe za ndovu",
+        "Burgundy": "Burgundy",
+        "Red": "Nyekundu",
+        "Gold": "Dhahabu",
+        "Silver": "Fedha",
+        "Brown": "Kahawia",
+        "Beige": "Beige",
+        "Pink": "Waridi",
+        "Purple": "Zambarau",
+        "Blue": "Bluu",
+        "Green": "Kijani",
+        "Yellow": "Njano",
+        "Orange": "Machungwa",
+        "Other / Custom colour": "Nyingine / Rangi maalum",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Vipimo maalum"
+    },
+    "nl": {
+        "Ready-to-wear": "Confectiekleding",
+        "Made-to-order": "Op bestelling gemaakt",
+        "Made-to-measure": "Op maat gemaakt",
+        "Black": "Zwart",
+        "White": "Wit",
+        "Ivory": "Ivoor",
+        "Burgundy": "Bordeauxrood",
+        "Red": "Rood",
+        "Gold": "Goud",
+        "Silver": "Zilver",
+        "Brown": "Bruin",
+        "Beige": "Beige",
+        "Pink": "Roze",
+        "Purple": "Paars",
+        "Blue": "Blauw",
+        "Green": "Groen",
+        "Yellow": "Geel",
+        "Orange": "Oranje",
+        "Other / Custom colour": "Anders / Aangepaste kleur",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Aangepaste maten"
+    },
+    "tr": {
+        "Ready-to-wear": "Hazır giyim",
+        "Made-to-order": "Sipariş üzerine",
+        "Made-to-measure": "Özel dikim",
+        "Black": "Siyah",
+        "White": "Beyaz",
+        "Ivory": "Fildişi",
+        "Burgundy": "Bordo",
+        "Red": "Kırmızı",
+        "Gold": "Altın",
+        "Silver": "Gümüş",
+        "Brown": "Kahverengi",
+        "Beige": "Bej",
+        "Pink": "Pembe",
+        "Purple": "Mor",
+        "Blue": "Mavi",
+        "Green": "Yeşil",
+        "Yellow": "Sarı",
+        "Orange": "Turuncu",
+        "Other / Custom colour": "Diğer / Özel renk",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "Özel ölçüler"
+    },
+    "hi": {
+        "Ready-to-wear": "रेडी-टू-वियर",
+        "Made-to-order": "ऑर्डर पर बनाया गया",
+        "Made-to-measure": "नाप के अनुसार बनाया गया",
+        "Black": "काला",
+        "White": "सफेद",
+        "Ivory": "आइवरी",
+        "Burgundy": "बरगंडी",
+        "Red": "लाल",
+        "Gold": "सुनहरा",
+        "Silver": "चाँदी",
+        "Brown": "भूरा",
+        "Beige": "बेज",
+        "Pink": "गुलाबी",
+        "Purple": "बैंगनी",
+        "Blue": "नीला",
+        "Green": "हरा",
+        "Yellow": "पीला",
+        "Orange": "नारंगी",
+        "Other / Custom colour": "अन्य / कस्टम रंग",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "कस्टम माप"
+    },
+    "ko": {
+        "Ready-to-wear": "기성복",
+        "Made-to-order": "주문 제작",
+        "Made-to-measure": "맞춤 제작",
+        "Black": "검정",
+        "White": "흰색",
+        "Ivory": "아이보리",
+        "Burgundy": "버건디",
+        "Red": "빨강",
+        "Gold": "금색",
+        "Silver": "은색",
+        "Brown": "갈색",
+        "Beige": "베이지",
+        "Pink": "분홍",
+        "Purple": "보라",
+        "Blue": "파랑",
+        "Green": "초록",
+        "Yellow": "노랑",
+        "Orange": "주황",
+        "Other / Custom colour": "기타 / 사용자 지정 색상",
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "Custom measurements": "맞춤 치수"
+    },
+    "fr": {
+        "Ready-to-wear": "Prêt-à-porter",
+        "Made-to-order": "Sur commande",
+        "Made-to-measure": "Sur mesure",
+        "Black": "Noir",
+        "White": "Blanc",
+        "Ivory": "Ivoire",
+        "Burgundy": "Bordeaux",
+        "Red": "Rouge",
+        "Gold": "Or",
+        "Silver": "Argent",
+        "Brown": "Marron",
+        "Beige": "Beige",
+        "Pink": "Rose",
+        "Purple": "Violet",
+        "Blue": "Bleu",
+        "Green": "Vert",
+        "Yellow": "Jaune",
+        "Orange": "Orange",
+        "Other / Custom colour": "Autre / Couleur personnalisée",
+        "XS": "TP (XS)",
+        "S": "P (S)",
+        "M": "M",
+        "L": "G (L)",
+        "XL": "TG (XL)",
+        "XXL": "TTG (XXL)",
+        "Custom measurements": "Mesures personnalisées"
+    }
+};
+  return translations[language]?.[value] || value;
+}
+</script>
+
+<script>
+function translateProductOptions() {
+  ["colour", "size"].forEach(function(id) {
+    const select = document.getElementById(id);
+    if (!select) return;
+
+    Array.from(select.options).forEach(function(option) {
+      const original = option.getAttribute("data-translate-value");
+      if (original) {
+        option.textContent = translateBagValue(original);
+      }
+    });
+  });
+}
+
+window.addEventListener("rmoLanguageChanged", translateProductOptions);
+translateProductOptions();
+</script>
+
+</body>
 <script>
 const type = document.getElementById("type");
 const size = document.getElementById("size");
@@ -198,26 +607,23 @@ function updateMeasurements() {
 type.addEventListener("change", updateMeasurements);
 size.addEventListener("change", updateMeasurements);
 
-});
-</body>
-<script>
 document.getElementById("orderForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const item = {
-        name: "RMO ÉLAN Signature Design",
-        price: null,
-        colour: document.getElementById("colour").value,
-        type: document.getElementById("type").value,
-        size: document.getElementById("size").value,
-        notes: document.getElementById("notes").value
-    };
+  const item = {
+    name: "RMO ÉLAN Signature Design",
+    price: null,
+    colour: document.getElementById("colour").value,
+    type: type.value,
+    size: size.value,
+    notes: document.getElementById("notes").value
+  };
 
-    let bag = JSON.parse(localStorage.getItem("rmoBag")) || [];
-    bag.push(item);
-    localStorage.setItem("rmoBag", JSON.stringify(bag));
+  let bag = JSON.parse(localStorage.getItem("rmoBag")) || [];
+  bag.push(item);
 
-    window.location.href = "bag.html";
+  localStorage.setItem("rmoBag", JSON.stringify(bag));
+  window.location.href = "bag.html";
 });
 </script>
 </html>
